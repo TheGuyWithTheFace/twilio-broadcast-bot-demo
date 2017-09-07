@@ -14,18 +14,18 @@ TRIGGER_STR = '!broadcast '
 # Load configs. These should really be in a proper config file rather than a
 # bunch of unlabled values in miscellaneous files, but oh well.
 with open(INFO_FILE) as f:
-    SERVER_ADDR = f.readline().rstrip('\n')
-    SERVER_PORT = int(f.readline().rstrip('\n'))
+    SERVER_ADDR = f.readline().rstrip('\n').split()[0]
+    SERVER_PORT = int(f.readline().rstrip('\n').split()[0])
 
 with open(TWILIO_FILE) as f:
-    TWILIO_SID = f.readline().rstrip('\n')
-    TWILIO_AUTH_TOKEN = f.readline().rstrip('\n')
-    TWILIO_PHONE_NUMBER = f.readline().rstrip('\n')
+    TWILIO_SID = f.readline().rstrip('\n').split()[0]
+    TWILIO_AUTH_TOKEN = f.readline().rstrip('\n').split()[0]
+    TWILIO_PHONE_NUMBER = f.readline().rstrip('\n').split()[0]
 
 PHONE_NUMBERS = []
 with open(NUMBERS_FILE) as f:
     for line in f:
-        PHONE_NUMBERS.append(line)
+        PHONE_NUMBERS.append(line.split()[0])
 
 
 class TestRequestHandler(BaseHTTPRequestHandler):
