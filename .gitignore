@@ -1,0 +1,5 @@
+*.swp
+Pipfile.lock
+numbers.txt
+server.txt
+twilio.txt
